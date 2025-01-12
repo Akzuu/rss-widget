@@ -16,7 +16,7 @@ export const NewsFeed: React.FC<NewsFeedProps> = ({ newsItems }) => {
   const topNewsItems = newsItems.slice(0, 8);
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow">
         {topNewsItems.length > 0 && (
           <div
