@@ -1,6 +1,6 @@
-// import Image from "next/image";
 import { NewsFeed } from "./components/news-feed";
 import Parser from "rss-parser";
+import { Time } from "./components/time";
 const parser = new Parser();
 
 type HSNewsItem = {
@@ -40,20 +40,18 @@ export default async function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-start font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div>
-          <NewsFeed
-            newsItems={hsFeed.items
-              .filter(
-                (e) =>
-                  !/^Sanalouhos|Kolumni|Miniristikko|Uutisvisa/.test(e.title)
-              )
-              .map((hsNewsItem) => ({
-                title: hsNewsItem.title,
-                date: new Date(hsNewsItem.isoDate),
-                imageUrl: hsNewsItem.enclosure?.url,
-              }))}
-          />
-        </div>
+        <Time />
+        <NewsFeed
+          newsItems={hsFeed.items
+            .filter(
+              (e) => !/^Sanalouhos|Kolumni|Miniristikko|Uutisvisa/.test(e.title)
+            )
+            .map((hsNewsItem) => ({
+              title: hsNewsItem.title,
+              date: new Date(hsNewsItem.isoDate),
+              imageUrl: hsNewsItem.enclosure?.url,
+            }))}
+        />
       </main>
     </div>
   );
