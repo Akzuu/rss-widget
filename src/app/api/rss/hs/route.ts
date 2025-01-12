@@ -16,7 +16,7 @@ type HSNewsItem = {
   isoDate: string;
 };
 
-type HSFeed = {
+export type HSFeed = {
   feedUrl: string;
   paginationLinks: { self: string };
   title: string;
