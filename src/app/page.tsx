@@ -46,7 +46,7 @@ export default async function Home() {
             .filter((e) => !/^Sanalouhos|Miniristikko|Uutisvisa/.test(e.title))
             .map((hsNewsItem) => ({
               title: hsNewsItem.title,
-              date: new Date(hsNewsItem.isoDate),
+              date: new Date(hsNewsItem.pubDate),
               imageUrl: hsNewsItem.enclosure?.url,
             }))}
         />
