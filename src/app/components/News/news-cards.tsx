@@ -8,11 +8,11 @@ type NewsItem = {
   title: string;
 };
 
-type NewsFeedProps = {
+type NewsCardsProps = {
   newsItems: NewsItem[];
 };
 
-export const NewsFeed: React.FC<NewsFeedProps> = ({ newsItems }) => {
+export const NewsCards: React.FC<NewsCardsProps> = ({ newsItems }) => {
   const topNewsItems = newsItems.slice(0, 8);
 
   return (
