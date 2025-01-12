@@ -14,7 +14,7 @@ type NewsFeedProps = {
 };
 
 export const NewsFeed: React.FC<NewsFeedProps> = ({ newsItems }) => {
-  const topNewsItems = newsItems.slice(0, 7);
+  const topNewsItems = newsItems.slice(0, 8);
 
   return (
     <div className="flex flex-col h-full">
@@ -47,7 +47,7 @@ export const NewsFeed: React.FC<NewsFeedProps> = ({ newsItems }) => {
             </div>
           </div>
         )}
-        {topNewsItems.map((item, index) => (
+        {topNewsItems.slice(1).map((item, index) => (
           <div
             key={index}
             className="relative p-4 bg-white shadow-md rounded-lg overflow-hidden flex flex-col"
