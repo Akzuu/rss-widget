@@ -43,9 +43,7 @@ export default async function Home() {
         <Time />
         <NewsFeed
           newsItems={hsFeed.items
-            .filter(
-              (e) => !/^Sanalouhos|Kolumni|Miniristikko|Uutisvisa/.test(e.title)
-            )
+            .filter((e) => !/^Sanalouhos|Miniristikko|Uutisvisa/.test(e.title))
             .map((hsNewsItem) => ({
               title: hsNewsItem.title,
               date: new Date(hsNewsItem.isoDate),
