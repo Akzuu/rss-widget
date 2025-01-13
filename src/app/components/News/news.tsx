@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { NewsCards } from "./news-cards";
 import { HSFeed } from "@/app/api/rss/hs/route";
+import { Cron } from "croner";
 
 export const News: React.FC = () => {
   const [hsNewsFeed, setHsNewsFeed] = useState<HSFeed>();
@@ -15,11 +16,16 @@ export const News: React.FC = () => {
     []
   );
 
-  // Fetch updates every 10 minutes
+  // Fetch updates every 5 minutes from 06:00 to 23:59
+  // and every 30 minutes from 23:00 to 05:59
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10 * 60 * 1000);
-    return () => clearInterval(interval);
+    const dayJob = new Cron("*/5 6-23 * * *", fetchData);
+    const nightJob = new Cron("*/30 0-5 * * *", fetchData);
+    return () => {
+      dayJob.stop();
+      nightJob.stop();
+    };
   }, [fetchData]);
 
   return (

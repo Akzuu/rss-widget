@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
+import { Cron } from "croner";
 
 const Comic: React.FC = () => {
   const [comicUrl, setComicUrl] = useState<string | undefined>();
@@ -15,19 +16,18 @@ const Comic: React.FC = () => {
     []
   );
 
-  // Fetch updates every 10 minutes
+  // Fetch updates every day at 03:30
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10 * 60 * 1000);
-    return () => clearInterval(interval);
+    const job = new Cron("30 3 * * *", fetchData);
+    return () => job.stop();
   }, [fetchData]);
 
+  if (!comicUrl) return null;
   return (
     <div className="flex flex-col justify-center items-center w-screen">
       <Link href={"https://www.hs.fi/sarjakuvat/fokit/"}>
-        {comicUrl && (
-          <Image alt="Fok_It comic" src={comicUrl} height={200} width={567} />
-        )}
+        <Image alt="Fok_It comic" src={comicUrl} height={200} width={567} />
 
         <div className="flex justify-between">
           <span>Fok_It</span>

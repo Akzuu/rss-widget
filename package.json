@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mui/base": "^5.0.0-beta.68",
+    "croner": "^9.0.0",
     "date-fns": "^4.1.0",
     "next": "15.1.4",
     "react": "^19.0.0",
