@@ -1,5 +1,6 @@
-import { Time } from "./components/time";
+import { Time } from "./components/Time/time";
 import { News } from "./components/News/news";
+import Comic from "./components/Comic/comic";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start">
         <Time />
         <News />
+        <Comic />
       </main>
     </div>
   );
