@@ -31,6 +31,8 @@ export const News: React.FC = () => {
             title: hsNewsItem.title,
             date: new Date(hsNewsItem.pubDate),
             imageUrl: hsNewsItem.enclosure?.url,
+            link: hsNewsItem.link,
+            owner: "HS",
           })) ?? []
       }
     />
