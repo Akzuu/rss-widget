@@ -31,8 +31,8 @@ const Comic: React.FC = () => {
           priority
           alt="Fok_It comic"
           src={comicUrl}
-          height={240}
-          width={680}
+          height={230}
+          width={656}
         />
 
         <div className="flex justify-between">
