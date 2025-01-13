@@ -27,7 +27,13 @@ const Comic: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center w-screen">
       <Link href={"https://www.hs.fi/sarjakuvat/fokit/"}>
-        <Image alt="Fok_It comic" src={comicUrl} height={200} width={567} />
+        <Image
+          priority
+          alt="Fok_It comic"
+          src={comicUrl}
+          height={200}
+          width={567}
+        />
 
         <div className="flex justify-between">
           <span>Fok_It</span>

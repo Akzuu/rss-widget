@@ -35,7 +35,7 @@ export const NewsCards: React.FC<NewsCardsProps> = ({ newsItems }) => {
               backgroundPosition: "center",
             }}
           >
-            <div className="relative bg-black bg-opacity-50 p-4 rounded-lg flex-grow">
+            <div className="relative bg-black bg-opacity-50 text-white p-4 rounded-lg flex-grow">
               <h2 className="text-xl font-bold">{topNewsItems[0].title}</h2>
               {topNewsItems[0].description && (
                 <p className="mt-2">{topNewsItems[0].description}</p>
