@@ -18,5 +18,7 @@ export async function GET() {
     isSameDay(today, new Date(fd.date))
   );
 
+  if (!flagDayToday) return Response.json("Not found", { status: 404 });
+
   return Response.json(flagDayToday);
 }
