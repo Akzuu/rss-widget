@@ -8,13 +8,18 @@ export type FlagDay = {
   links: string[];
 };
 
+type Response = {
+  count: number;
+  data: FlagDay[];
+};
+
 export async function GET() {
   const today = new Date();
   const flagDays = (await (
     await fetch("https://mitatanaanliputetaan.vercel.app/api/liputuspaivat")
-  ).json()) as FlagDay[];
+  ).json()) as Response | undefined;
 
-  const flagDayToday = flagDays.find((fd) =>
+  const flagDayToday = flagDays?.data.find((fd) =>
     isSameDay(today, new Date(fd.date))
   );
 
