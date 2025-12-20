@@ -10,7 +10,7 @@ export const Time: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="text-4xl font-bold bg-gradient-to-r from-slate-400 via-slate-300 to-slate-400 bg-clip-text text-transparent tracking-wider">
+    <div className="text-4xl font-bold text-slate-300 tracking-wider">
       {format(time, "HH:mm")}
     </div>
   );
