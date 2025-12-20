@@ -19,7 +19,7 @@ export const NewsCards: React.FC<NewsCardsProps> = ({ newsItems }) => {
   const topNewsItems = newsItems.slice(0, 5);
 
   return (
-    <div className="flex flex-col h-full px-4">
+    <div className="flex flex-col h-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow">
         {topNewsItems.length > 0 && (
           <Link
