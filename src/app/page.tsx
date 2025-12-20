@@ -1,7 +1,7 @@
 import { Time } from "./components/Time/time";
 import { News } from "./components/News/news";
 import Comic from "./components/Comic/comic";
-import { FlagDayComponent as FlagDay } from "./components/FlagDay/flagDay";
+import { FlagDayComponent as FlagDay } from "./components/FlagDay/flag-day";
 
 export default function Home() {
   return (
