@@ -9,7 +9,7 @@ export default function Home() {
       <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start">
         <div>
           <Time />
-          <FlagDay />
+          <FlagDay disabled />
         </div>
         <News />
         <Comic />

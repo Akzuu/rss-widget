@@ -3,7 +3,7 @@ import { FlagDay } from "@/app/api/flag-day/route";
 import { Cron } from "croner";
 import { useCallback, useEffect, useState } from "react";
 
-export const FlagDayComponent = () => {
+export const FlagDayComponent = ({ disabled }: { disabled?: boolean }) => {
   const [flagDay, setFlagDay] = useState<FlagDay | undefined>();
 
   const fetchData = useCallback(
@@ -17,10 +17,11 @@ export const FlagDayComponent = () => {
 
   // Fetch updates every day at 03:30
   useEffect(() => {
+    if (disabled) return;
     fetchData();
     const job = new Cron("30 3 * * *", fetchData);
     return () => job.stop();
-  }, [fetchData]);
+  }, [fetchData, disabled]);
 
   if (!flagDay) return null;
   return (

@@ -19,6 +19,8 @@ export async function GET() {
     await fetch("https://mitatanaanliputetaan.vercel.app/api/liputuspaivat")
   ).json()) as Response | undefined;
 
+  console.log(flagDays);
+
   const flagDayToday = flagDays?.data.find((fd) =>
     isSameDay(today, new Date(fd.date))
   );

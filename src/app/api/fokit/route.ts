@@ -27,8 +27,6 @@ export async function GET() {
     await fetch("https://www.hs.fi/api/laneitems/39221/list/normal/295")
   ).json()) as ComicResponse[] | undefined;
 
-  console.log(comics);
-
   if (comics === undefined || comics.length === 0) {
     return Response.error();
   }
