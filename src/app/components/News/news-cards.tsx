@@ -30,9 +30,14 @@ export const NewsCards: React.FC<NewsCardsProps> = ({ newsItems }) => {
             style={{
               background: topNewsItems[0].imageUrl
                 ? `url(${topNewsItems[0].imageUrl})`
-                : "linear-gradient(135deg, #475569 0%, #334155 100%)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+                : "linear-gradient(135deg, #1e293b 25%, transparent 25%), linear-gradient(225deg, #1e293b 25%, transparent 25%), linear-gradient(45deg, #1e293b 25%, transparent 25%), linear-gradient(315deg, #1e293b 25%, #0f172a 25%)",
+              backgroundPosition: topNewsItems[0].imageUrl
+                ? "center"
+                : "10px 0, 10px 0, 0 0, 0 0",
+              backgroundSize: topNewsItems[0].imageUrl ? "cover" : "20px 20px",
+              backgroundRepeat: topNewsItems[0].imageUrl
+                ? "no-repeat"
+                : "repeat",
             }}
           >
             <div className="absolute inset-0 bg-black/40"></div>
@@ -66,9 +71,12 @@ export const NewsCards: React.FC<NewsCardsProps> = ({ newsItems }) => {
             style={{
               background: item.imageUrl
                 ? `url(${item.imageUrl})`
-                : "linear-gradient(135deg, #475569 0%, #334155 100%)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+                : "linear-gradient(135deg, #1e293b 25%, transparent 25%), linear-gradient(225deg, #1e293b 25%, transparent 25%), linear-gradient(45deg, #1e293b 25%, transparent 25%), linear-gradient(315deg, #1e293b 25%, #0f172a 25%)",
+              backgroundPosition: item.imageUrl
+                ? "center"
+                : "10px 0, 10px 0, 0 0, 0 0",
+              backgroundSize: item.imageUrl ? "cover" : "20px 20px",
+              backgroundRepeat: item.imageUrl ? "no-repeat" : "repeat",
             }}
           >
             <div className="absolute inset-0 bg-black/40"></div>
