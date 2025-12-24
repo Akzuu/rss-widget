@@ -4,7 +4,7 @@ import { Cron } from "croner";
 import { useCallback, useEffect, useState } from "react";
 
 export const FlagDayComponent = ({ disabled }: { disabled?: boolean }) => {
-  const [flagDay, setFlagDay] = useState<FlagDay | undefined>();
+  const [flagDay, setFlagDay] = useState<FlagDay | null>(null);
 
   const fetchData = useCallback(
     () =>

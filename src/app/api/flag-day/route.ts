@@ -31,5 +31,5 @@ export async function GET() {
     isSameDay(today, new Date(fd.date))
   );
 
-  return Response.json(flagDayToday ?? flagDays?.data[0]);
+  return Response.json(flagDayToday ?? null);
 }
