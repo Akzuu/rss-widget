@@ -1,7 +1,6 @@
 "use client";
 import { News } from "./components/News/news";
 import Comic from "./components/Comic/comic";
-import { FlagDayComponent as FlagDay } from "./components/FlagDay/flag-day";
 import { TopBar } from "./components/TopBar/top-bar";
 
 export default function Home() {
@@ -9,7 +8,6 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-start font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start w-full">
         <TopBar />
-        <FlagDay disabled />
         <div className="flex flex-col lg:flex-row gap-4 w-full px-4">
           <div className="flex-grow">
             <News />

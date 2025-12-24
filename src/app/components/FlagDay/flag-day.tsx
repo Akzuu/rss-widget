@@ -25,7 +25,7 @@ export const FlagDayComponent = ({ disabled }: { disabled?: boolean }) => {
 
   if (!flagDay) return null;
   return (
-    <div className="flex justify-center items-center w-screen">
+    <div className="flex justify-center items-center text-center max-w-md text-sm truncate">
       {flagDay.name}
     </div>
   );

@@ -14,18 +14,22 @@ type Response = {
 };
 
 export async function GET() {
+  if (!process.env.FLAG_DAY_API_KEY) {
+    return new Response("FLAG_DAY_API_KEY is not set", { status: 500 });
+  }
+
   const today = new Date();
   const flagDays = (await (
-    await fetch("https://mitatanaanliputetaan.vercel.app/api/liputuspaivat")
+    await fetch("https://mitatanaanliputetaan.vercel.app/api/liputuspaivat", {
+      headers: {
+        "X-API-Key": process.env.FLAG_DAY_API_KEY,
+      },
+    })
   ).json()) as Response | undefined;
-
-  console.log(flagDays);
 
   const flagDayToday = flagDays?.data.find((fd) =>
     isSameDay(today, new Date(fd.date))
   );
 
-  if (!flagDayToday) return Response.json("Not found", { status: 404 });
-
-  return Response.json(flagDayToday);
+  return Response.json(flagDayToday ?? flagDays?.data[0]);
 }

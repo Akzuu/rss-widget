@@ -5,6 +5,7 @@ import SunCalc from "suncalc";
 import { Cron } from "croner";
 import { Time } from "../Time/time";
 import { WeatherInfo } from "../WeatherInfo/weather-info";
+import { FlagDayComponent } from "../FlagDay/flag-day";
 
 const getMoonPhaseName = (phase: number): string => {
   if (phase < 0.03) return "Uusikuu";
@@ -66,7 +67,10 @@ export const TopBar = () => {
         <WeatherInfo side="left" />
       </div>
       <div className="flex justify-center flex-shrink-0">
-        <Time />
+        <div className="flex flex-col justify-center items-center">
+          <Time />
+          <FlagDayComponent />
+        </div>
       </div>
       <div className="flex justify-end flex-1">
         <WeatherInfo
